@@ -1,19 +1,25 @@
 geheimwoord = "banaan"
 
-print ("Welkom het spel  hangman de bedoeling is dat je niet word opgehangen en dit moet je doen door 1 letter in te typen.")
-
+print ("Welkom het spel hangman de bedoeling is dat je niet word opgehangen en dit moet je doen door 1 letter in te typen.")
+aantalletters = ""
 aantalFouten = 0
 figuur1 = "----------------"
 
 while aantalFouten < 5:
-  letter = input("Type een letter")
+  letter = input ("Type een letter")
   if letter == "quit":
-    print("het spel is gestopt het woord was" + " " + geheimwoord)
-    break
+   print("het spel is gestopt het woord was" + " " + geheimwoord)
+   break
 
   if letter in geheimwoord:
-    print("je hebt het goed")
+     aantalletters = aantalletters + letter
+     print("je hebt het goed")
+
+  elif letter in aantalletters:
+    print("je hebt de letter al geraden")
+
   else:
+    aantalletters = aantalletters + letter
+
     print ("je hebt het verkeerd")
     print (figuur1)
-
