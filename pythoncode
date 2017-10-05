@@ -4,6 +4,10 @@ print ("Welkom het spel hangman de bedoeling is dat je niet word opgehangen en d
 aantalletters = ""
 aantalFouten = 0
 figuur1 = "----------------"
+figuur2 = "|"
+
+if aantalFouten > 5:
+    print ("je bent opgehangen het woord was :(" + " " + geheimwoord)
 
 while aantalFouten < 5:
   letter = input ("Type een letter")
@@ -15,6 +19,7 @@ while aantalFouten < 5:
      aantalletters = aantalletters + letter
      print("je hebt het goed")
 
+
   elif letter in aantalletters:
     print("je hebt de letter al geraden")
 
@@ -22,4 +27,20 @@ while aantalFouten < 5:
     aantalletters = aantalletters + letter
 
     print ("je hebt het verkeerd")
-    print (figuur1)
+    aantalFouten = aantalFouten + 1
+
+    if aantalFouten == 1:
+            print (figuur1)
+
+    if aantalFouten == 2:
+        print (figuur1)
+        for i in range (5):
+            print (figuur2)
+
+
+    if aantalFouten == 3:
+        print (figuur1)
+        for i in range (5):
+                print (figuur2)
+        print (figuur1)
+
