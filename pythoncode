@@ -1,6 +1,9 @@
-geheimwoord = "coderclass"
+geheimwoord = "cola"
+geheimlijst = ["c", "o", "l", "a"]
+einde = len(geheimlijst)*("_")
+geraden = ""
 
-print ("Welkom het spel hangman de bedoeling is dat je niet word opgehangen en dit moet je doen door 1 letter in te typen.")
+print ("Welkom het spel hangman de bedoeling is dat je niet word opgehangen en dit moet je doen door 1 letter in te typen en als je een woord wil intypen dan moet je het vraagteken invoeren.")
 aantalgoed = 0
 aantalletters = ""
 aantalFouten = 0
@@ -9,7 +12,7 @@ figuur2 = "|"
 galg = "( )"
 galg1 ="/|\ "
 galg2 = "/ \ "
-alfabet = "a""b""c""d""e""f""g""h""i""j""k""l""m""n""o""p""q""r""s""t""u""v""w""x""y""z""?"
+alfabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","?"]
 
 while aantalFouten < 5:
   letter = input ("Type een letter.")
@@ -21,17 +24,27 @@ while aantalFouten < 5:
    break
 
   if letter in alfabet:
-     print("")
+    if letter in geheimlijst:
+          tijdelijk = geheimlijst.index(letter)
+          list1 = list(einde)
+          list1[tijdelijk] = letter
+          einde2 = "".join(list1)
+          geraden += letter
+          print(geraden)
+          if geraden == geheimwoord:
+              print("Goedzo je hebt het woord geraden!")
+              break
+    print ("")
   else:
-     print("als je een woord wil intypen dan moet je het vraagteken invoeren")
+      print("als je een woord wil intypen dan moet je het vraagteken invoeren")
 
 
   if letter == "?":
     school  = input ("Type een woord")
     Lijst = school
     print ("Dit is het woord die je hebt gebruikt:" + " " + Lijst)
-    if school == "coderclass":
-        print ("Yee je hebt het woord geraden. Alvast gefeliciteerd met je verjaardag.")
+    if school == geheimwoord:
+        print ("Yee je hebt het woord geraden.")
         break
 
   if letter in geheimwoord:
